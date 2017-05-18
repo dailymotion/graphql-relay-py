@@ -1,5 +1,4 @@
 from collections import OrderedDict
-from promise import Promise
 from graphql.type import (
     GraphQLArgument,
     GraphQLInputObjectField,
