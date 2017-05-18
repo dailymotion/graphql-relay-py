@@ -46,7 +46,7 @@ def mutation_with_client_mutation_id(name, input_fields, output_fields, mutate_a
                 raise GraphQLError('Cannot set clientMutationId in the payload object {}'.format(repr(payload)))
             return payload
 
-        return Promise.resolve(mutate_and_get_payload(input, *_)).then(on_resolve)
+        return on_resolve(mutate_and_get_payload(input, *_))
 
     return GraphQLField(
         output_type,

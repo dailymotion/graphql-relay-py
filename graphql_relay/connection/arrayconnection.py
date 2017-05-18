@@ -1,5 +1,3 @@
-from promise import Promise
-
 from ..utils import base64, unbase64, is_str
 from .connectiontypes import Connection, PageInfo, Edge
 
@@ -26,7 +24,7 @@ def connection_from_promised_list(data_promise, args=None, **kwargs):
     A version of `connectionFromArray` that takes a promised array, and returns a
     promised connection.
     '''
-    return data_promise.then(lambda data: connection_from_list(data, args, **kwargs))
+    return connection_from_list(data_promise, args, **kwargs)
 
 
 def connection_from_list_slice(list_slice, args=None, connection_type=None,
@@ -111,7 +109,7 @@ PREFIX = 'arrayconnection:'
 
 
 def connection_from_promised_list_slice(data_promise, args=None, **kwargs):
-    return data_promise.then(lambda data: connection_from_list_slice(data, args, **kwargs))
+    return connection_from_list_slice(data_promise, args, **kwargs)
 
 
 def offset_to_cursor(offset):
